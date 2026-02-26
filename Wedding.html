@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հարսանյաց Հրավիրատոմս</title>
+    <link rel="stylesheet" href="Wedding.css">
+</head>
+<body>
+
+<div id="door" class="overlay">
+    <div class="door-card-new">
+        <div class="blue-heart-main">❤️</div>
+        <p class="invite-label-new">💍 Հարսանյաց հրավիրատոմս</p>
+        <h2 class="names-intro-new">Արման & Մարիա</h2>
+        <button id="openBtn" class="open-btn-new">ԲԱՑԵԼ ՀՐԱՎԻՐԱՏՈՄՍԸ</button>
+        <p class="sub-text">Սեղմեք բացելու համար</p>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="names">Արման & Մարիա</h1>
+
+    <div class="gallery-grid">
+        <img src="main.jpg" alt="wedding2">
+    </div>
+
+    <div class="date-row">
+        <div class="hero-date">Հունիս 14 / 2026</div>
+    </div>
+
+    <p class="countdown-title">Հարսանիքը սկսվում է</p>
+    <div class="countdown-grid" id="timer"></div>
+
+    <div class="calendar-box">
+        <div class="cal-header">Հունիս 2026</div>
+        <div class="weekdays">
+            <div>Երկ</div><div>Երք</div><div>Չոր</div><div>Հնգ</div><div>Ուրբ</div><div>Շաբ</div><div>Կիր</div>
+        </div>
+        <div class="days-grid" id="calDays"></div>
+        <p class="wedding-weekday">Կիրակի</p>
+    </div>
+
+    <div class="gallery-grid">
+        <img src="p1.jpg" alt="wedding2">
+    </div>
+
+
+    <div class="event">
+        <div class="blue-heart">⛪</div>
+        <h1>Պսակադրություն</h1>
+        <div class="event-time">15:00</div>
+        <p>Սբ․ Գայանե եկեղեցի</p>
+        <div class="map-card">
+          <img src="church.jpg">
+            <a href="https://maps.app.goo.gl/JhzbgabdRBpCbaWe8" target="_blank" class="map-btn">
+                Ինչպես հասնել
+            </a>
+        </div>
+    </div>
+
+    <div class="event">
+        <div class="blue-heart">🥂</div>
+        <h1>Հանդիսություն</h1>
+        <div class="event-time">17:00</div>
+        <p>Դվին Մյուզիք Հոլլ</p>
+        <div class="map-card">
+            <img src="hall.jpg">
+            <a href="https://maps.app.goo.gl/dGen29qyuhXwwCyW6" target="_blank" class="map-btn">
+                Ինչպես հասնել
+            </a>
+        </div>
+    </div>
+
+    <div class="finish-section">
+        <div class="blue-heart">🚗</div>
+        <h3>Ավարտ</h3>
+        <p>«Սերը երբեք չի վերջանում»</p>
+        <button id="showModalBtn" class="confirm-btn hidden-btn">ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ</button>
+        <p id="guestCounter" style="color:var(--blue); font-weight:bold;">
+            Արդեն հաստատել են 0 հյուր
+        </p>
+    </div>
+</div>
+
+<div id="rsvpModal" class="modal">
+    <div class="modal-card">
+        <div class="modal-icon" style="text-align:center;">💙</div>
+        <h2 class="modal-title" style="text-align:center;">Հաստատում</h2>
+
+        <div class="form-group">
+            <label>Անուն Ազգանուն *</label>
+            <input type="text" id="guestName" placeholder="Գրեք ձեր անունը">
+        </div>
+
+        <div class="form-group">
+            <label>Կկարողանա՞ք ներկա գտնվել *</label>
+            <div class="radio-row">
+                <div class="option-box active" data-val="Այո">
+                    <div class="dot"></div>
+                    <span>Այո</span>
+                </div>
+                <div class="option-box" data-val="Ոչ">
+                    <div class="dot"></div>
+                    <span>Ոչ</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="countBox">
+            <label>Քանի հոգի</label>
+            <input type="number" id="guestCount" min="1" value="1">
+        </div>
+
+        <!-- ԱՅՍՏԵՂ ԱՎԵԼԱՑՐԵԼ ԲԱՐԵՄԱՂԹԱՆՔԻ ԴԱՇՏԸ -->
+        <div class="form-group">
+            <input type="text" id="guestWish" class="wish-input" placeholder="Ձեր բարեմաղթանքը (ոչ պարտադիր)">
+        </div>
+
+        <button id="sendBtn" class="btn-confirm-final">
+            <div class="triangle-icon"></div>
+            Հաստատել
+        </button>
+        <p id="closeModalBtn" class="close-txt">Փակել</p>
+    </div>
+</div>
+
+<button id="musicToggle" class="music-btn">🎵</button>
+<audio id="bgMusic" src="music.mp3" loop></audio>
+<script src="Wedding.js"></script>
+
+<div id="hearts-container"></div>
+
+<div id="successMessage">
+    <div class="success-card">
+        <h2>❤️ Շնորհակալություն❤️</h2>
+    </div>
+</div>
+</body>
+</html>

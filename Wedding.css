@@ -1,0 +1,543 @@
+:root { --blue: #00cae3; --text: #333; --light: #f4f4f4; }
+body { margin: 0; font-family: -apple-system, sans-serif; background: #fff; color: var(--text); text-align: center; overflow-x: hidden; }
+
+/* ՆՈՐ ԱՌԱՋԻՆ ԷՋԻ CSS */
+.overlay {
+    position: fixed; inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('your-photo.jpg') no-repeat center center/cover;
+    z-index: 5000; display: flex; align-items: center; justify-content: center;
+    transition: 0.8s;
+}
+.door-card-new {
+    width: 85%; max-width: 380px; background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px); padding: 40px 20px; border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); text-align: center; border: 1px solid rgba(255,255,255,0.3);
+}
+.blue-heart-main { font-size: 50px; margin-bottom: 10px; color: var(--blue); }
+.invite-label-new { font-size: 1rem; color: #555; margin-bottom: 5px; }
+.names-intro-new { font-size: 1.8rem; margin-bottom: 30px; color: #222; }
+.open-btn-new {
+    background: linear-gradient(135deg, #00cae3, #00acc1); color: white; border: none; padding: 15px 30px;
+    border-radius: 15px; font-weight: bold; width: 100%; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 202, 227, 0.4);
+}
+.sub-text { margin-top: 20px; font-size: 0.8rem; color: #888; }
+
+/* ՔՈ ԲՆՈՐԻՆԱԿ CSS-Ը */
+.container { max-width: 480px; margin: 0 auto; padding-bottom: 50px; }
+.names { font-weight: 300; font-size: 2.5rem; margin: 40px 0; }
+.placeholder-bg {
+    width: 100%; background: linear-gradient(135deg, #f0fbfc 0%, #ffffff 100%);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #b2ebf2; border-radius: 15px; box-sizing: border-box;
+}
+.main-p { height: 350px; }
+.event-p { height: 250px; }
+.placeholder-text { color: #00acc1; font-size: 0.9rem; font-weight: 500; border: 1px dashed #00acc1; padding: 15px; border-radius: 10px; text-align: center; }
+.hero-date { margin-top: 15px; font-size: 1.5rem; color: var(--blue); border-bottom: 2px solid var(--blue); display: inline-block; padding-bottom: 5px; }
+.countdown-title { font-size: 1.1rem; color: #666; margin-bottom: -10px; margin-top: 30px; }
+.countdown-grid { display: flex; justify-content: center; gap: 10px; margin: 25px 0; min-height: 80px; align-items: center;}
+.time-unit { background: var(--light); padding: 10px; border-radius: 10px; min-width: 60px; }
+.time-unit span { display: block; font-size: 1.2rem; font-weight: bold; }
+.calendar-box { margin: 40px auto; width: 90%; }
+.cal-header { font-size: 1.2rem; margin-bottom: 15px; color: var(--blue); }
+.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); font-size: 0.8rem; color: #aaa; }
+.days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 10px; }
+.day { padding: 15px 0; font-size: 1rem; position: relative; display: flex; align-items: center; justify-content: center; z-index: 1; }
+.wedding-day { color: #ff0000 !important; font-weight: bold; }
+.wedding-day::after {
+    content: ''; position: absolute; top: 50%; left: 50%; width: 50px; height: 50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>');
+    background-size: contain; background-repeat: no-repeat; background-position: center;
+    transform: translate(-50%, -50%); z-index: -1; animation: pulse 1.2s infinite ease-in-out;
+}
+@keyframes pulse { 0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; } 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; } }
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
+.img-v { grid-row: span 2; height: 320px; border-radius: 10px; }
+.img-s { height: 155px; border-radius: 10px; }
+.img-h { grid-column: span 2; height: 150px; border-radius: 10px; }
+.event-time { font-size: 3rem; color: var(--blue); font-weight: 200; margin: 5px 0; }
+.map-card { position: relative; width: 92%; margin: 10px auto 40px; }
+.map-btn { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 3000; align-items: center; justify-content: center; }
+.modal-card { background: #fff; width: 88%; max-width: 380px; padding: 35px 25px; border-radius: 25px; text-align: left; }
+input { width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 10px; box-sizing: border-box; margin-top: 5px;}
+.radio-row { display: flex; gap: 10px; }
+.option-box { flex: 1; border: 1px solid #eee; border-radius: 15px; padding: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
+.option-box.active { border-color: var(--blue); background: #f0faff; }
+.dot { width: 16px; height: 16px; border: 1px solid #ccc; border-radius: 50%; margin-bottom: 5px; position: relative; }
+.option-box.active .dot { border-color: var(--blue); background: radial-gradient(circle, var(--blue) 45%, white 50%); }
+.btn-confirm-final { width: 100%; padding: 14px; background: linear-gradient(to right, #00cae3, #2af598); color: white; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 15px; }
+.triangle-icon { width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 12px solid white; }
+.close-txt { text-align: center; color: #f3d483; cursor: pointer; margin-top: 15px; font-weight: bold; }
+.confirm-btn { background: var(--blue); color: #fff; border: none; padding: 20px; width: 90%; border-radius: 15px; font-weight: bold; cursor: pointer; margin: 40px auto; display: block; }
+.hidden-btn { opacity: 0; transform: translateY(20px); transition: 0.6s; }
+.show-btn { opacity: 1; transform: translateY(0); }
+/* ===== THEME ===== */
+
+:root {
+    --bg: #ffffff;
+    --card: #ffffff;
+}
+
+body.dark {
+    --text: #eaeaea;
+    --light: #1f1f1f;
+    --bg: #121212;
+    --card: rgba(255,255,255,0.06);
+}
+
+body {
+    background: var(--bg);
+    transition: background .35s ease, color .35s ease;
+}
+
+/* theme button */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 6000;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark .theme-toggle {
+    background: #1f1f1f;
+    color: #fff;
+}
+
+/* hovers */
+.open-btn-new:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,202,227,0.5);
+}
+
+.map-btn:hover {
+    background: #00acc1;
+}
+
+body.dark .modal-card {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark .time-unit {
+    background: #1f1f1f;
+}
+
+/* ================= MOBILE FIX ================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* container breathing room */
+.container {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+/* images never overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* hero image */
+.main-p {
+    height: clamp(260px, 55vw, 350px);
+}
+
+/* event images */
+.event-p {
+    height: clamp(200px, 45vw, 250px);
+}
+
+/* gallery responsive */
+.gallery {
+    grid-template-columns: 1fr 1fr;
+}
+
+.img-v {
+    height: clamp(240px, 60vw, 320px);
+}
+
+.img-s {
+    height: clamp(120px, 30vw, 155px);
+}
+
+.img-h {
+    height: clamp(130px, 32vw, 150px);
+}
+
+/* big time font on small screens */
+@media (max-width: 420px) {
+    .event-time {
+        font-size: 2.4rem;
+    }
+
+    .names {
+        font-size: 2.1rem;
+    }
+
+    .door-card-new {
+        padding: 30px 16px;
+    }
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+}
+
+/* very small phones */
+@media (max-width: 360px) {
+    .countdown-grid {
+        gap: 6px;
+    }
+
+    .time-unit {
+        min-width: 52px;
+        padding: 8px;
+    }
+
+    .open-btn-new {
+        padding: 13px 18px;
+        font-size: 14px;
+    }
+}
+
+/* ===== MOBILE SAFE ===== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+
+.wish-input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #00cae3;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-style: italic;
+    color: #555;
+    background: linear-gradient(135deg, #f0fcff 0%, #ffffff 100%);
+    transition: 0.3s;
+}
+
+.wish-input::placeholder {
+    color: #a0d4e8;
+    font-style: italic;
+}
+
+.wish-input:focus {
+    outline: none;
+    border-color: #00acc1;
+    box-shadow: 0 0 8px rgba(0, 202, 227, 0.4);
+    background: #f0faff;
+}
+
+#countBox {
+    display: none;
+}
+
+/* ===== CALENDAR BUTTON BEAUTY ===== */
+
+.calendar-btn {
+    margin-top: 18px;
+    padding: 14px 26px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+
+    background: linear-gradient(135deg, #00cae3, #2af598);
+    color: #fff;
+
+    box-shadow: 0 8px 22px rgba(0, 202, 227, 0.35);
+    transition: all 0.28s ease;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* hover */
+.calendar-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(0, 202, 227, 0.45);
+}
+
+/* click */
+.calendar-btn:active {
+    transform: scale(0.96);
+}
+
+/* dark mode harmony */
+body.dark .calendar-btn {
+    box-shadow: 0 8px 22px rgba(0, 202, 227, 0.25);
+}
+
+.calendar-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 60%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.calendar-btn:hover::after {
+    opacity: 1;
+}
+
+
+.calendar-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-btn {
+    margin-top: 22px;
+}
+
+@media (max-width: 420px) {
+    .calendar-btn {
+        margin-top: 24px;
+    }
+}
+
+/* DATE + CALENDAR CENTER FIX */
+
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-date {
+    margin: 0;
+}
+
+@media (max-width: 420px) {
+    .gallery {
+        grid-template-columns: 1fr; /* բոլոր նկարները սյան մեջ */
+    }
+    .img-v, .img-s, .img-h {
+        height: auto; /* բնական բարձրություն */
+    }
+}
+
+@media (max-width: 360px) {
+    .door-card-new { padding: 25px 12px; }
+}
+
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Գործում է՝ date ձախից, կոճակը աջ */
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-date {
+    font-size: 1.5rem;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 5px;
+    flex: 1;              /* Իջեցնում ենք, որ լայնությունը լրիվ լինի */
+    text-align: center;   /* Ամսաթիվը միշտ կենտրոնում լինի */
+}
+
+.calendar-btn {
+    flex: 0;              /* Ուղղակի տարածք վերցնի կոնտենտի չափով */
+}
+
+@media (max-width: 420px) {
+    .date-row {
+        flex-wrap: nowrap;          /* մի տողում պահել */
+        gap: 10px;                  /* փոքր բաց թողնված տարածք */
+    }
+    .hero-date {
+        font-size: 1.2rem;          /* փոքրացնել, որ տեղավորվի */
+    }
+    .calendar-btn {
+        padding: 10px 18px;         /* փոքրացնել կոճակը */
+        font-size: 0.85rem;
+    }
+}
+
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ամսաթիվը կենտրոնում */
+    position: relative;      /* կոճակը տանել աջ */
+}
+
+.calendar-btn {
+    position: absolute;
+    right: 0;                /* միշտ աջ կողմ */
+}
+
+/* date-row container */
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Ամսաթիվը կենտրոնում */
+    position: relative;       /* Աջի կոճակի համար position:absolute */
+    margin-top: 20px;
+}
+
+/* Ամսաթիվը */
+.hero-date {
+    font-size: 1.5rem;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 5px;
+    z-index: 1;               /* overlay խնդիր չլինի */
+}
+
+/* Ավելացնել օրացույց կոճակը */
+.calendar-btn {
+    position: absolute;       /* Աջ կողմի համար */
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Կենտրոնացնել ուղղահայաց */
+    flex: 0;
+    margin: 0;
+}
+
+/* Փոքր էկրանների համար */
+@media (max-width: 420px) {
+    .hero-date {
+        font-size: 1.2rem;    /* փոքրացնել, որ տեղավորվի */
+    }
+    .calendar-btn {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+    }
+}
+
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ամսաթիվ ձախ/կենտրոն, կոճակ աջ */
+    margin-top: 20px;
+}
+
+/* Ամսաթիվը կենտրոնում ունենալու համար՝ օգտագործում ենք margin:auto */
+.hero-date {
+    font-size: 1.5rem;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 5px;
+
+    /* Ամսաթիվը իրականում կենտրոնացնելու համար */
+    margin: 0 auto;
+}
+
+/* Ավելացնել օրացույց կոճակը՝ աջ */
+.calendar-btn {
+    flex: 0; /* միայն անհրաժեշտ լայնությունը */
+    margin-left: auto; /* միշտ աջ կողմ */
+}
+
+/* Փոքր էկրանների համար */
+@media (max-width: 420px) {
+    .hero-date {
+        font-size: 1.2rem;
+    }
+    .calendar-btn {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.music-btn {
+    position: fixed;
+    top: 15px;         /* վերևից 15px */
+    right: 15px;       /* աջից 15px */
+    width: 45px;
+    height: 45px;
+    background: rgba(0,202,227,0.85);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: 0.25s all;
+    z-index: 7000;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* ===== EVENTS STYLING ===== */
+.event {
+    position: relative;
+    padding: 25px 0; /* ավելի շատ տարածք վերև-ներքև */
+    text-align: center;
+}
+
+/* Բարակ գիծ ամբողջ էջով */
+.event:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;      /* ամբողջ լայնությունը */
+    height: 1px;      /* բարակ գիծ */
+    background: #00cae3;
+    opacity: 0.25;    /* թեթև, նուրբ գույն */
+}
+
+/* Էմոջիների չափի մեծացում */
+.event .blue-heart {
+    font-size: 60px;  /* նախկինում 40-50px, հիմա մեծացրինք */
+    margin-bottom: 10px;
+}
