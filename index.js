@@ -138,7 +138,7 @@ function createHeart() {
     const heart = document.createElement("div");
     heart.className = "floating-heart";
 
-    const types = ["❤️", "💖", "💕", "💗"];
+    const types = ["💍"];
     heart.innerHTML = types[Math.floor(Math.random() * types.length)];
 
     heart.style.left = Math.random() * 100 + "vw";
@@ -155,3 +155,4 @@ function createHeart() {
 
 // Սկսել սրտիկները
 setInterval(createHeart, 400);
+
